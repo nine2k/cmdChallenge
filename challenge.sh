@@ -62,4 +62,27 @@ bash(0)> grep -h 500 **/access.log*
 # that start with "access.log" printing one
 # IP address per line.
 #
-bash(0)> 
+bash(0)> grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" **/access.log*
+
+# Delete all of the files in this challenge
+# directory including all subdirectories and
+# their contents.
+#
+bash(0)> find . -delete
+
+# Count the number of files in the current
+# working directory. Print the number of
+# files as a single integer.
+#
+bash(0)> find -L . -type f | wc -l
+
+# Print the contents of access.log
+# sorted.
+#
+bash(0)>  sort access.log
+
+# Print the number of lines
+# in access.log that contain the string
+# "GET".
+#
+bash(0)>  
