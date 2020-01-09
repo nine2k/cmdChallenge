@@ -85,4 +85,11 @@ bash(0)>  sort access.log
 # in access.log that contain the string
 # "GET".
 #
-bash(0)>  
+bash(0)>  grep -c "GET" access.log
+
+# The file split-me.txt contains a list of
+# numbers separated by a ';' character.
+# Split the numbers on the ';' character,
+# one number per line.
+#
+bash(0)> 
