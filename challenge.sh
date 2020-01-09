@@ -92,4 +92,24 @@ bash(0)>  grep -c "GET" access.log
 # Split the numbers on the ';' character,
 # one number per line.
 #
-bash(0)> 
+bash(0)> tr ';' '\n' < split-me.txt
+
+# Print the numbers 1 to 100 separated
+# by spaces.
+#
+bash(0)> echo $(seq 1 100)
+
+# There are files in this challenge with
+# different file extensions.
+# Remove all files with the .doc extension
+# recursively in the current working directory.
+#
+bash(0)> rm **/*.doc
+
+# This challenge has text files (with a .txt extension)
+# that contain the phrase "challenges are difficult".
+# Delete this phrase recursively from all text files.
+# Note that some files are in subdirectories so you will
+# need to search for them.
+#
+bash(0)>
