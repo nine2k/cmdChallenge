@@ -112,4 +112,19 @@ bash(0)> rm **/*.doc
 # Note that some files are in subdirectories so you will
 # need to search for them.
 #
-bash(0)>
+bash(0)> sed -i 's/challenges are difficult//g' **/*.txt
+
+# The file sum-me.txt has a list of numbers,
+# one per line. Print the sum of these numbers.
+#
+bash(0)> paste -sd+ sum-me.txt | bc
+
+# Print all files in the current directory
+# recursively without the leading directory path.
+#
+bash(0)> find -type f -printf '%f\n'
+
+# Rename all files removing the extension from
+# them in the current directory recursively.
+#
+bash(0)> 
