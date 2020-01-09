@@ -127,4 +127,91 @@ bash(0)> find -type f -printf '%f\n'
 # Rename all files removing the extension from
 # them in the current directory recursively.
 #
-bash(0)> 
+bash(0)> for f in $(find . -type f -name "*.*"); do mv "$f" "${f%.*}"; done
+
+# The files in this challenge contain spaces.
+# List all of the files (filenames only) in the
+# current directory but replace all spaces with
+# a '.' character.
+#
+bash(0)>  ls | tr ' ' '.'
+
+# In this challenge there are some directories containing files
+# with different extensionas. Print all directories,
+# one per line without duplicates that contain
+# one or more files with a ".tf" extension.
+#
+bash(0)> dirname **/*tf|uniq
+
+# There are a mix of files in this directory
+# that start with letters and numbers. Print
+# the filenames (just the filenames) of all
+# files that start with a number recursively
+# in the current directory.
+
+bash(0)> ls -RF|grep ^[0-9].*[^/]$
+
+# Print the 25th line of the file faces.txt
+#
+bash(0)>  sed -n '25p' faces.txt
+
+# Print the lines of the README file in this directory in
+# reverse line order so that the last line is printed first
+# and the first line is printed last.
+# ~~~~~~~~~~~~~~~~~~~~~
+# In the future
+# Environmental destruction will be the norm
+# No longer can it be said that
+# My peers and I care about this earth
+# It will be evident that
+# My generation is apathetic and lethargic
+# It is foolish to presume that
+# There is hope
+# ~~~~~~~~~~~~~~~~~~~~~
+# -Jonathan Reed "The Lost Generation"
+#
+bash(0)> tac README
+
+# Print the file faces.txt, but only print the first instance of each
+# duplicate line, even if the duplicates don't appear next to each other.
+# Note that order matters so don't sort the lines before removing duplicates.
+#
+bash(0)>  awk '!x[$0]++' faces.txt
+
+# The file "table.csv" contains the following comma-separated lines:
+# id,name,count
+# 4,susan,11
+# 33,alice,22
+# 1772,joe,33
+#
+# Print the rows as a table, like the following:
+# id    name   count
+# 4     susan  11
+# 33    alice  22
+# 1772  joe    33
+#
+bash(0)> cat table.csv | column -t -s","
+
+# The file random-numbers.txt contains a list
+# of 100 random integers. Print the number of
+# unique prime numbers contained in the file.
+#
+bash(0)> sort -u r*|factor|grep -Pcv '\d '
+
+# The following excerpt from War and Peace is saved to
+# the file 'war_and_peace.txt':
+#
+# She is betraying us! Russia alone must save Europe.
+# Our gracious sovereign recognizes his high vocation
+# and will be true to it. That is the one thing I have
+# faith in! Our good and wonderful sovereign has to
+# perform the noblest role on earth, and he is so virtuous
+# and noble that God will not forsake him. He will fulfill
+# his vocation and crush the hydra of revolution, which
+# has become more terrible than ever in the person of this
+# murderer and villain!
+#
+# The file however has been corrupted, there are random '!'
+# marks inserted throughout.  Print the original text.
+#
+bash(0)> sed -n 7,15s/..//p *
